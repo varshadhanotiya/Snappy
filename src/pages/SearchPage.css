@@ -1,4 +1,7 @@
 .search-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
   font-family: Arial, sans-serif;
 }
@@ -16,15 +19,15 @@
 }
 
 .search-bar input {
-  padding: 6px 10px;
+  padding: 16px 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 250px;
 }
 
-.search-bar button {
-  padding: 6px 12px;
+.search-bar button, .search-button  {
+  padding: 12px 12px;
   background-color: #007bff;
   border: none;
   color: white;

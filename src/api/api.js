@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = "";
+const API_KEY = "pjd11RQC7mUUHOMqhSzhRBUJuGDGfsM0QeCSo7pjTkbbRajAByIFZdgP";
 
 export const fetchImages = async (query, page = 1, perPage = 4) => {
   if (!query.trim()) throw new Error("Please enter a search query.");
