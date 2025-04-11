@@ -108,6 +108,50 @@ const EditorPage = () => {
     }
   };
 
+  const logCanvasObjects = () => {
+    if (!canvas) {
+      console.log("Canvas is not initialized yet.");
+      return;
+    }
+
+    const objectsInfo = canvas.getObjects().map((obj, index) => {
+      const baseProps = {
+        index,
+        type: obj.type,
+        left: obj.left,
+        top: obj.top,
+        width: obj.width,
+        height: obj.height,
+        angle: obj.angle,
+        scaleX: obj.scaleX,
+        scaleY: obj.scaleY,
+      };
+
+      if (obj.type === "image") {
+        return {
+          ...baseProps,
+          src: obj.getSrc?.(),
+        };
+      }
+
+      if (obj.type === "i-text" || obj.type === "text") {
+        return {
+          ...baseProps,
+          text: obj.text,
+          fontSize: obj.fontSize,
+          fill: obj.fill,
+        };
+      }
+
+      return {
+        ...baseProps,
+        fill: obj.fill,
+      };
+    });
+
+    console.log("Canvas Layers:", objectsInfo);
+  };
+
   return (
     <div className="editor-container">
       <h2 className="editor-title">Editor</h2>
@@ -125,6 +169,7 @@ const EditorPage = () => {
         <button onClick={() => addShape("circle")}>Circle</button>
         <button onClick={() => addShape("triangle")}>Triangle</button>
         <button onClick={downloadImage}>Download</button>
+        <button onClick={logCanvasObjects}>Log Layers</button>
       </div>
     </div>
   );
