@@ -1,4 +1,5 @@
 import React from "react";
+import "./PaginationComponent.css";
 
 const PaginationComponent = ({
   currentPage,
@@ -14,47 +15,27 @@ const PaginationComponent = ({
   };
 
   const onPageChange = (e) => {
-    let newPage = Number(e.target.value);
+    const newPage = Number(e.target.value);
     if (newPage >= 1 && newPage <= totalNumberOfPages) {
       setCurrentPage(newPage);
     }
   };
 
   const onPageBlur = () => {
-    let pageNumber = Number(currentPage);
+    const pageNumber = Number(currentPage);
     if (isNaN(pageNumber) || pageNumber < 1) {
       setCurrentPage(1);
-    } else if (isNaN(pageNumber) || pageNumber > totalNumberOfPages) {
+    } else if (pageNumber > totalNumberOfPages) {
       setCurrentPage(totalNumberOfPages);
-    } else {
-      setCurrentPage(pageNumber);
     }
   };
 
   return (
-    <div
-      className="pagination"
-      style={{
-        marginTop: "20px",
-        gap: "4px",
-      }}
-    >
-      <button
-        style={{
-          margin: "5px",
-        }}
-        disabled={currentPage === 1}
-        onClick={() => setCurrentPage(1)}
-      >
+    <div className="pagination">
+      <button disabled={currentPage === 1} onClick={() => setCurrentPage(1)}>
         First
       </button>
-      <button
-        style={{
-          margin: "5px",
-        }}
-        disabled={currentPage === 1}
-        onClick={prevPage}
-      >
+      <button disabled={currentPage === 1} onClick={prevPage}>
         Prev
       </button>
       <input
@@ -62,25 +43,11 @@ const PaginationComponent = ({
         value={currentPage}
         onBlur={onPageBlur}
         onChange={onPageChange}
-        style={{
-          width: "15px",
-          padding: "0.6em 1.2em",
-          margin: "5px",
-        }}
       />
-      <button
-        style={{
-          margin: "5px",
-        }}
-        disabled={currentPage === totalNumberOfPages}
-        onClick={nextPage}
-      >
+      <button disabled={currentPage === totalNumberOfPages} onClick={nextPage}>
         Next
       </button>
       <button
-        style={{
-          margin: "5px",
-        }}
         disabled={currentPage === totalNumberOfPages}
         onClick={() => setCurrentPage(totalNumberOfPages)}
       >
