@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = "pjd11RQC7mUUHOMqhSzhRBUJuGDGfsM0QeCSo7pjTkbbRajAByIFZdgP";
+const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
 
 export const fetchImages = async (query, page = 1, perPage = 4) => {
   if (!query.trim()) throw new Error("Please enter a search query.");

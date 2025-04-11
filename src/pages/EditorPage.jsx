@@ -3,6 +3,7 @@ import * as fabric from "fabric";
 import "./EditorPage.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FabricJSCanvas } from "../components/FabricJSCanvas";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const EditorPage = () => {
   const [canvas, setCanvas] = useState(null);
@@ -155,9 +156,10 @@ const EditorPage = () => {
   return (
     <div className="editor-container">
       <h2 className="editor-title">Editor</h2>
-      <button className="back-button" onClick={() => navigate("/")}>
+      {/* <button className="back-button" onClick={() => navigate("/")}>
         Back to Search
-      </button>
+      </button> */}
+      <ArrowBackIcon className="back-button" onClick={() => navigate("/")} />
 
       <div className="canvas-wrapper">
         <FabricJSCanvas onCanvasCreated={handleCanvasCreated} />
