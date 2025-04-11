@@ -28,8 +28,8 @@ A web app built with **React**, **Vite**, and **Fabric.js** that allows users to
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/image-search-editor.git
-cd image-search-editor
+git clone https://github.com/varshadhanotiya/Snappy.git
+cd "folder_name_here
 npm install
 ```
 
